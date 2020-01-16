@@ -1,0 +1,53 @@
+Lab00 Routing and Windows
+
+#inital firewall setup
+
+In firewall make sure em0 is wan and em1 is lan
+disable dhcp and assign proper ip addresses to both interfaces
+to ensure that the ip addresses are correct go to shell and ping 8.8.8.8
+
+*Note: make sure vm network interfaces are on the lan or they wont connect*
+
+
+#inital workstation setup
+
+open network settings
+got to ipv4 and set ip address and gateway/dns
+change hostname to wks01-brian
+reboot
+
+
+#config firewall on wks01
+
+in chrome got to http://10.0.5.2
+login using admin/pfsense
+go thorugh the wizard 
+hostname: fw01-brian
+domain: brian.local
+primary dns: 8.8.8.8
+cilck next to step 4 then uncheck block RFC1918 Private Networks 
+
+#inital server core setup
+
+Create new password
+type sconfig and configure the network (option 8) to have static ip of 10.0.5.5/24 and gateway/dns of 10.0.5.2
+return to main menu
+change computer name to ad01-brian within sconfig
+
+
+#installing and configuring ad
+
+Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+Install -ADDSForest -DomainName brian.local
+once rebooted type whoami and it should show that you are part of a domain
+join wks01 to the domain
+
+
+#configuring managemnt01
+
+open command prompt and go to sconfig
+choose option 5 then change updates to manual
+set ip address and gateawy/dns with sconfig
+change hostname to mgmt01-brian then join domain
+reboot
+
