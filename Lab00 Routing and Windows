@@ -51,3 +51,6 @@ set ip address and gateawy/dns with sconfig
 change hostname to mgmt01-brian then join domain
 reboot
 
+in server manager go to manage drop down and click add features
+in features select remote server admin tools then expand and choose role admin tools expand again and
+choose ad ds and ad lds tools dhcp and dns server tools and file service tools. install.
