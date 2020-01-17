@@ -54,3 +54,9 @@ reboot
 in server manager go to manage drop down and click add features
 in features select remote server admin tools then expand and choose role admin tools expand again and
 choose ad ds and ad lds tools dhcp and dns server tools and file service tools. install.
+click manage then click add server.
+add ad01 to server manager
+now create two new named users one admin one non admin
+now setup dns by making reverse lookup zones for the network
+create an A record and ptr for fw01-brian
+logout and relogin ad brian.anderson-adm
