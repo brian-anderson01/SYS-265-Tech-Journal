@@ -60,3 +60,12 @@ now create two new named users one admin one non admin
 now setup dns by making reverse lookup zones for the network
 create an A record and ptr for fw01-brian
 logout and relogin ad brian.anderson-adm
+
+
+
+#topics to learn more about
+
+#using powershell to see records such as the A records and the ptr records
+https://rcmtech.wordpress.com/2014/02/26/get-and-delete-dns-a-and-ptr-records-via-powershell/
+https://docs.microsoft.com/en-us/powershell/module/dnsserver/get-dnsserverresourcerecord?view=win10-ps
+
