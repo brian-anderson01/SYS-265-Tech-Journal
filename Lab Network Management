@@ -1,0 +1,23 @@
+**Make sure that vms are on the lan**
+
+on web01 set up network and change host name
+create sudo user named brian
+add dns records for web01
+
+enable snmp on the firewall https://www.rmtechteam.com/wiki/tech-wiki/rmtt/product-specific/pfsense-enable-snmp/
+restart bsnmpd in the status dropdown then services
+
+boot up nmon01 and setup network and hostname
+add dns records for nmon01 on ad
+make a sudo user and disable root ssh in etc/ssh/sshd_config
+putty in from mgmt01 and yum install net-snmp-utils
+
+On web01 yum install net-snmp-utils net-snmp
+cd /etc/snmp/ and move the conf file and create a new one
+input the new config lines
+enable and start snmpd
+firewall-cmd --permanent --add-port=161/udp
+firewall-cmd --reload
+
+install and configure snmp on ad01
+https://newhelptech.wordpress.com/2019/02/09/how-to-enabling-and-configuring-snmp-services-on-windows-server-2019/
