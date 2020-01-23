@@ -41,3 +41,6 @@ then on nmon01 run snmpwalk -Os -c SYS265 -v2c web01-brian system
 In the tcpdump on web01 you should be able to see the SYS265 in clear text which is supposed to act like a password
 
 I would like to learn more about snmp, powershell and remote management using server manager
+
+https://searchnetworking.techtarget.com/definition/SNMP
+https://docs.microsoft.com/en-us/configmgr/develop/core/understand/windows-powershell-basics
