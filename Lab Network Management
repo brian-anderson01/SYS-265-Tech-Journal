@@ -21,3 +21,23 @@ firewall-cmd --reload
 
 install and configure snmp on ad01
 https://newhelptech.wordpress.com/2019/02/09/how-to-enabling-and-configuring-snmp-services-on-windows-server-2019/
+install snmp tools on mgmt01
+
+Enable remote managemnt on ad01
+go to server manager right click ad01 and choose computer management click ok on error
+enable remote powershell on ad01 https://www.faqforge.com/windows/create-powershell-session-remote-computer/
+once you have configured it so mgmt01 is a tusted host open powershell on mgmt01
+execute 
+Enter-PSSession -Credential Get-Credential -ComputerName ad01-brian
+in the session execute Set-NetFirewallRule -DisplayGroup "Remote Event Log Management" -Enable True
+remote computer management from server manager should work now
+
+in computer management go to services then find the snmp service, go to properties
+add SYS265 to community names add nmon01-brian to the hosts to accept snmp packets from
+Restart the service
+
+on web01 run sudo tcpdump -i ens192 port 161 -c10 -AAA
+then on nmon01 run snmpwalk -Os -c SYS265 -v2c web01-brian system
+In the tcpdump on web01 you should be able to see the SYS265 in clear text which is supposed to act like a password
+
+I would like to learn more about snmp, powershell and remote management using server manager
