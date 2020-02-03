@@ -1,0 +1,32 @@
+Edit /etc/yum.repos.d/CentOS-Base.repo and enable EXTRAS, and UPDATES repos to look like so:
+
+[updates]
+name=CentOS-$releasever - Updates
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates
+gpgcheck=0
+
+[extras]
+name=CentOS-$releasever - Extras
+mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras
+gpgcheck=0
+
+[EPEL]
+Name = EPEL
+baseurl = http://dl.fedoraproject.org/pub/epel/$releasever/$basearch/
+enabled = 1
+gpgcheck = 0
+
+Netx execute:
+yum makecache
+
+then go to "vi /etc/yum.repos.d/pandorafms.repo" add this:
+
+[artica_pandorafms]
+name=CentOS7 - PandoraFMS official repo
+baseurl=http://firefly.artica.es/centos7
+gpgcheck=0
+enabled=1
+
+again run "yum makecache"
+
+Then execute: yum install pandorafms_console pandorafms_server mariadb-server
