@@ -1,3 +1,4 @@
+**installation**
 Edit /etc/yum.repos.d/CentOS-Base.repo and enable EXTRAS, and UPDATES repos to look like so:
 
 [updates]
@@ -32,3 +33,28 @@ again run "yum makecache"
 Then execute: yum install pandorafms_console pandorafms_server mariadb-server
 
 if php needs to be updated: https://linuxconfig.org/how-to-install-or-upgrade-to-php-7-on-centos-linux-server
+
+**Setting up monitoring**
+
+Click resources -> add agents
+on this page click create agent in the bottom right
+put in the name and the pi address of the system, you can also choose the os
+click create in the bottom right
+you should now be in the setup view with information about the agent and a qr code on the right of the screen
+
+Now its time to make some modules
+click on the modules tab in the top right (looks like a computer monitor with a heartbeat)
+on this page click the dropdown for type and choose "new network server module"
+click create
+in this case I am creating a module to check if the host is alive, this is done through icmp
+in the module component dropdown choose "network management"
+then in the new dropdown that says "manual setup" choose "host alive"
+cange the name if you choose and change the module group if you want
+now leave the rest as the default values, ensure that target ip is set to the remote system
+click create in the bottom right
+now the status should say not initialized with a blue box
+in the top right click the view tab (look like an eye)
+this shows an overview of the agent and its modules
+if the host alive is still not initialized click the force remote checks button in the top right of the agent contact area
+upon refreshing the module should be working and should say it is normal.
+repeat for any other agents that you have setup.
