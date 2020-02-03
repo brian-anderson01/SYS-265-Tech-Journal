@@ -30,3 +30,5 @@ enabled=1
 again run "yum makecache"
 
 Then execute: yum install pandorafms_console pandorafms_server mariadb-server
+
+if php needs to be updated: https://linuxconfig.org/how-to-install-or-upgrade-to-php-7-on-centos-linux-server
