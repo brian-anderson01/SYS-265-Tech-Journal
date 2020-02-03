@@ -1,3 +1,6 @@
+Very useful link:
+** https://pandorafms.com/docs/index.php?title=Pandora:Documentation_en **
+
 **installation**
 Edit /etc/yum.repos.d/CentOS-Base.repo and enable EXTRAS, and UPDATES repos to look like so:
 
@@ -58,3 +61,34 @@ this shows an overview of the agent and its modules
 if the host alive is still not initialized click the force remote checks button in the top right of the agent contact area
 upon refreshing the module should be working and should say it is normal.
 repeat for any other agents that you have setup.
+
+
+**setting up snmp monitoring**
+the remote system you want to monitor with snmp must already have it installed and initialised (we did this in the network management lab)
+
+once you have snmp setup on the remote system go to pandora, click monitoring, go to snmp then snmp browser
+set the target ip to the ip of the remote system and the community to whatever you named your snmp community
+set the starting OID to .1.3.6.1.2
+set the version to v.2c
+click browse
+if noting happens then your snmp is not setup on the remote host or you input the incorrect information
+if it worked a tree list will show up
+to setup disk monitoring expand hots resources and then find storage description and storage used
+click the magnifying glass next to each one in the description dropdown and in the value place it will say what it is
+to monitor the system hard drive find the one named "/"
+once you have found that remeber what number it was
+find that same number in the storage used section and click the magnifying glass
+then in the OID information window click the create network component button
+name it whatever name you would like then click the group dropdown and choose *network management* (important)
+scroll down to find the port option and put in 161
+click create in the bottom right
+go back to manage agents and choose the one that you just made the disk monitor for
+go to the modules tab change the type to create a new network server module
+click create in the module cick the first "manual setup" dropdown and choose network management
+then in the dropdown on the right next to it choose storage used or whatever you named the network component
+then click create in the bottom right
+in the view tab click the force remote check a couple of times and refresh until the counter resets
+after refreshing and force checking the storage used module should show that it is normal and show a number
+repete this process on other hosts you would like to monitor with snmp
+
+
