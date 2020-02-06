@@ -39,9 +39,17 @@ if php needs to be updated: https://linuxconfig.org/how-to-install-or-upgrade-to
 
 To access the pandora web gui, go on a computer with a web browser on the same network as your pandora server
 navigate to http://yourip/pandora_console/
+ during the first time setup there will be some prompts
+ then a database will be created and it will show a generated password for the database
+ save this password somewhere
+ then finish the process
+ go back to the padora server and open /etc/pandora/pandora_server.conf with vi or nano
+ scroll down to dbpass and input the generated password
+ also change the dbname or username if you changed those
 
 **Setting up monitoring**
 
+Go to the web gui and login
 Click resources -> add agents
 on this page click create agent in the bottom right
 put in the name and the pi address of the system, you can also choose the os
