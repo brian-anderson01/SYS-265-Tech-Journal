@@ -1,0 +1,12 @@
+[apache]
+ansible1-brian
+[webmin]
+ansible2-brian
+[windows]
+mgmt01-brian
+[windows:vars]
+ansible_user=brian.anderson-adm@brian.local
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+ansible_winrm_transport=ntlm
+ansible_winrm_port=5986
