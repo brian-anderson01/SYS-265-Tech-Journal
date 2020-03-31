@@ -2,6 +2,10 @@ Host ceph-admin-brian
 	Hostname ceph-admin-brian
 	User cephuser
 
+Host mon-brian
+	Hostname mon-brian
+	User cephuser
+
 Host osd1-brian
 	Hostname osd1-brian
 	User cephuser
