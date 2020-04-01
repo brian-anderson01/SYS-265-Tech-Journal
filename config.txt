@@ -13,3 +13,11 @@ Host osd1-brian
 Host osd2-brian
 	Hostname osd2-brian
 	User cephuser
+
+Host mda-brian
+	Hostname mda-brian
+	User cephuser
+	
+Host client-brian
+	Hostname client-brian
+	User cephuser
